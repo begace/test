@@ -1,1 +1,2 @@
-print("하이")
+for i in range(10) :
+    print("하이")

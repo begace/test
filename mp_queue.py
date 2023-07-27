@@ -10,21 +10,22 @@ import time
 def pro1(q):
     for i in range(100):
         q.put(i)
-    time.sleep(1)
 
 def pro2(q):
     items = []
-    while not q.empty():
+    while True:
         item = q.get()
         items.append(item)
+
+        if item is None:
+                print("모든 값을 가져왔습니다.")
+                break
         print(f"p2 : q 객체에서 {item}을 가져왔습니다.")
         print(f"현재 큐에 저장된 값은 {items} 입니다.")
-        time.sleep(0.1)
+        time.sleep(0.01)
 
 if __name__ == "__main__":
     que = Queue()
-
-    #que.
 
     p1 = Process(target=pro1, args=(que,))
     p2 = Process(target=pro2, args=(que,))
@@ -33,7 +34,11 @@ if __name__ == "__main__":
     p2.start()
 
     p1.join()
+    que.put(None)
     p2.join()
 
     p1.terminate()
     p2.terminate()
+
+    
+    

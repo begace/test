@@ -22,7 +22,7 @@ def pro2(q):
                 break
         print(f"p2 : q 객체에서 {item}을 가져왔습니다.")
         print(f"현재 큐에 저장된 값은 {items} 입니다.")
-        time.sleep(0.01)
+        time.sleep(0.1)
 
 if __name__ == "__main__":
     que = Queue()

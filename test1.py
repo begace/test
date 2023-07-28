@@ -46,8 +46,11 @@ ma = m1("ma")# ma를 m1의 첫 개체로 지정.
 
 m1.create_instances(10)
 
-print(ma.getNext().getNext().getNext().getNext().getName()) # m1의 첫 개체인 ma의 다음의 다음의 다음의 다음 요소의 이름을 내놓으라
+print(f"출력테스트 : {ma.getNext().getNext().getNext().getNext().getName()}") # m1의 첫 개체인 ma의 다음의 다음의 다음의 다음 요소의 이름을 내놓으라
 
+for i in m1.items:
+    if i.getName() == "m6":
+        print(i.getName())
 # m1의 모든 인스턴스 출력
 #for instance in m1.items:
 #    print(instance.getName())

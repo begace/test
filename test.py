@@ -34,13 +34,24 @@ if __name__=='__main__':
 
 """
 
-a = "100"
+import openai
+openai.api_key = "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"
+MAXTOKENS = 4000
 
-try:
-    print(len(a))
-except TypeError:
-    print("a는 시퀀스 타입이 아닙니다. 에러 처리가 필요합니다.")
-except ValueError:
-    print("Val")
-finally: 
-    print("fin")
+prompt = "질문입력" # 여기에 질문 입력
+# OpenAI에 질문을 보내고 응답을 받습니다.
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": prompt},
+    ],
+    max_tokens=MAXTOKENS,
+    n=1,
+    stop=None,
+    temperature=0.8,
+    api_key=openai.api_key
+)
+
+# 응답의 내용을 출력합니다.
+print(response.choices[0].message['content'].strip())

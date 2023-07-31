@@ -35,7 +35,7 @@ if __name__=='__main__':
 """
 
 import openai
-openai.api_key = "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"
+openai.api_key = ""
 MAXTOKENS = 4000
 
 prompt = "질문입력" # 여기에 질문 입력

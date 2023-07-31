@@ -35,23 +35,11 @@ class m1:
     def getNum(self):
         return self.__num
 
-    def getNext(self):
-        __index = self.items.index(self)
-        if __index + 1 < len(self.items):
-            return self.items[__index + 1]
-        else:
-            return None  # 현재 인스턴스가 마지막 인스턴스인 경우 None을 반환
-
-ma = m1("ma")# ma를 m1의 첫 개체로 지정.
+# ma = m1("ma")# ma를 m1의 첫 개체로 지정.
 
 m1.create_instances(10)
 
-print(f"출력테스트 : {ma.getNext().getNext().getNext().getNext().getName()}") # m1의 첫 개체인 ma의 다음의 다음의 다음의 다음 요소의 이름을 내놓으라
-
-for i in m1.items:
-    if i.getName() == "m6":
-        print(i.getName())
 # m1의 모든 인스턴스 출력
-#for instance in m1.items:
-#    print(instance.getName())
-#    print(instance.getNum())
+for instance in m1.items:
+   print(instance.getName())
+   print(instance.getNum())
